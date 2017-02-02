@@ -1,0 +1,31 @@
+timestamp: 2017-02-02T14:43:56.425203
+CREATE TABLE item(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512) UNIQUE,
+    file CHAR(512),
+    author CHAR(512),
+    email CHAR(512),
+    phone CHAR(512),
+    body TEXT
+);
+success!
+timestamp: 2017-02-02T14:48:52.453459
+ALTER TABLE item ADD picture CHAR(512);
+timestamp: 2017-02-02T14:48:52.457153
+ALTER TABLE item ADD item_name CHAR(512) UNIQUE;
+timestamp: 2017-02-02T14:49:22.801382
+ALTER TABLE item ADD item_name CHAR(512) UNIQUE;
+timestamp: 2017-02-02T14:49:28.630434
+ALTER TABLE item ADD item_name CHAR(512) UNIQUE;
+timestamp: 2017-02-02T14:49:29.022877
+ALTER TABLE item ADD item_name CHAR(512) UNIQUE;
+timestamp: 2017-02-02T14:50:54.846399
+ALTER TABLE item ADD item_name CHAR(512) UNIQUE;
+timestamp: 2017-02-02T14:51:30.599687
+ALTER TABLE item ADD seller CHAR(512);
+timestamp: 2017-02-02T14:51:30.603034
+ALTER TABLE item ADD item_description TEXT;
+success!
+success!
+success!
+success!
