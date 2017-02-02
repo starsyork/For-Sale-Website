@@ -1,12 +1,15 @@
 db = DAL("sqlite://storage.sqlite")
 
 db.define_table('item',
-                Field('title', unique=True),
+                Field('title'),
+                Field('valid'),
                 Field('picture', 'upload'),
                 Field('seller'),
                 Field('email'),
                 Field('phone'),
+                Field('category'),
                 Field('item_description', 'text'),
+                Field('price'),
                 format='%(title)s')
 
 db.item.title.requires = IS_NOT_EMPTY()
@@ -17,11 +20,15 @@ db.item.phone.requires = IS_NOT_EMPTY()
 
 db.item.email.requires = IS_EMAIL()
 
+db.item.category.requires = IS_IN_SET(['Car', 'Bike', 'Clothes'], zero=T('choose category'))
+
 db.item.item_description.requires = IS_NOT_EMPTY()
 
+db.item.price.requires = IS_NOT_EMPTY()
 
+db.item.price.requires = IS_FLOAT_IN_RANGE(0, 100000.0, error_message='The price should be in the range 0..100000')
 
-
+db.item.valid.requires = IS_IN_SET(['On Sale', 'Sold Out'], zero=T('choose status'))
 
 
 

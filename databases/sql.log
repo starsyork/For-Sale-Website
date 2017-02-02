@@ -29,3 +29,24 @@ success!
 success!
 success!
 success!
+timestamp: 2017-02-02T14:54:29.328502
+ALTER TABLE item ADD category CHAR(512);
+success!
+success!
+success!
+success!
+timestamp: 2017-02-02T15:06:44.009871
+ALTER TABLE item ADD price CHAR(512);
+timestamp: 2017-02-02T15:06:44.013902
+ALTER TABLE item ADD valid CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
