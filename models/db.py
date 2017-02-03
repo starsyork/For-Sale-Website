@@ -3,7 +3,7 @@ db = DAL("sqlite://storage.sqlite")
 db.define_table('item',
                 Field('title'),
                 Field('valid'),
-                Field('picture', 'upload'),
+                Field('file', 'upload'),
                 Field('seller'),
                 Field('email'),
                 Field('phone'),

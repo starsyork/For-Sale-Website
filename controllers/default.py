@@ -9,6 +9,17 @@
 # -------------------------------------------------------------------------
 
 
+# @auth.requires_login()
+# def addItem():
+#     item = db(db.item.id==request.args(0)).select().first()
+#     db.comment.image_id.default = image.id
+#     form = SQLFORM(db.comment)
+#     if form.process().accepted:
+#         response.flash = 'your comment is posted'
+#     comments = db(db.comment.image_id==image.id).select()
+#     return dict(image=image, comments=comments, form=form)
+
+
 def index():
     """
     example action using the internationalization operator T and flash
@@ -17,8 +28,14 @@ def index():
     if you need a simple wiki simply replace the two lines below with:
     return auth.wiki()
     """
-    response.flash = T("Hello World")
-    return dict(message=T('Welcome to web2py!'))
+    # response.flash = T("Hello World")
+    # return dict(message=T('Welcome to web2py!'))
+    items = db().select(db.item.ALL, orderby=db.item.title)
+    return dict(items=items)
+
+
+def download():
+    return response.download(request, db)
 
 
 def user():
