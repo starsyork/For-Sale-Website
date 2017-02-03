@@ -26,41 +26,50 @@
 .itemList{
     display: flex;
   flex-wrap: wrap;
-   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+   /*box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.26);*/
+border-style: groove;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 20px;
-  padding-top: 15px;
+
+    padding: 5px 0;
+    height: 150px;
 }
 
 
 .itempic {
-    padding-left: 10px;
+    /*padding-left: 10px;*/
     width: 20%;
-    height:150px;
+    height:100%;
+}
+
+
+.title{
+
+    font-family: Arial;
+    font-size: 30px;
 }
 
 .info{
-    padding-left: 10%;
-    padding-top: 5%;
+    height: 100%;
+    padding-left: 5%;
     width: 50%;
 }
 
-
-.phone {
-
-    width: 100%;
+.contact_info{
+    padding-top: 20px;
 }
 
-
-.email {
-    width: 100%;
+.side_info{
+    width:30%;
 }
 
+.price{
+    font-size: 30px;
+    color: #aa5500;
+    font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+}
 
-.seller {
-    width: 100%;
+.status{
+    padding-top: 20px;
 }
 
 

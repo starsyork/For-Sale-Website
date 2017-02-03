@@ -6,7 +6,7 @@ db = DAL("sqlite://storage.sqlite")
 
 db.define_table('item',
                 Field('title'),
-                Field('valid'),
+                Field('valid', 'boolean', default=False),
                 Field('file', 'upload'),
                 Field('seller'),
                 Field('email'),
@@ -32,7 +32,7 @@ db.item.price.requires = IS_NOT_EMPTY()
 
 db.item.price.requires = IS_FLOAT_IN_RANGE(0, 100000.0, error_message='The price should be in the range 0..100000')
 
-db.item.valid.requires = IS_IN_SET(['On Sale', 'Sold Out'], zero=T('choose status'))
+db.item.valid.requires = IS_NOT_EMPTY()
 
 
 auth = Auth(db)

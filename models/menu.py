@@ -29,10 +29,12 @@ response.google_analytics_id = None
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    (T('Home'), False, URL('default', 'index'), [])
+    (T('Home'), False, URL(request.application, 'default', 'index'), []),
+    (T('On Sale'), False, URL(request.application, 'default', 'onsale'), []),
+    (T('Sold Out'), False, URL(request.application, 'default', 'soldout'), [])
 ]
 
-DEVELOPMENT_MENU = True
+DEVELOPMENT_MENU = False
 
 
 # ----------------------------------------------------------------------------------------------------------------------
