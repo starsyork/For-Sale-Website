@@ -1,23 +1,31 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{{=URL('static','css/userIndex.css')}}"/>
 </head>
 <body>
+
+
         <header class="header">
         <h1 class="header_name">For sale</h1>
         <h2 class="header_subtittle">What do you want ?</h2>
+
+
+
         </header>
         <section class="content">
             <h1>All items</h1>
-            <ul>
             {{for item in items:}}
-            <img width="200px"
-             src="{{=URL('download', args=item.file)}}" />
-            <p>Seller:{{=item.seller}}    email:{{=item.email}}  Phone:{{=item.phone}}</p>
-
+             <div class="itemList">
+                 <img class="itempic", width="200px" src="{{=URL('download', args=item.file)}}" />
+                <div class="info">
+                    <p class="seller">Seller: {{=item.seller}}</p>
+                    <p class="email">email: {{=item.email}}  </p>
+                    <p class="phone">Phone: {{=item.phone}}</p>
+                </div>
+             </div>
             {{pass}}
-            </ul>
         </section>
 </body>
 </html>
