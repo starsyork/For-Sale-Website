@@ -23,6 +23,14 @@ def user():
     return dict(form=auth())
 
 
+@auth.requires_login()
+def additem():
+    form = SQLFORM(db.item)
+    if form.process().accepted:
+        response.flash = 'your item is added'
+    return dict(form=form)
+
+
 def index():
     """
     example action using the internationalization operator T and flash
@@ -34,6 +42,16 @@ def index():
     # response.flash = T("Hello World")
     # return dict(message=T('Welcome to web2py!'))
     items = db().select(db.item.ALL, orderby=db.item.title)
+    return dict(items=items)
+
+
+def onsale():
+    items = db(db.item.valid==True).select()
+    return dict(items=items)
+
+
+def soldout():
+    items = db(db.item.valid==False).select()
     return dict(items=items)
 
 

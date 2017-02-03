@@ -4,6 +4,9 @@ from gluon.tools import Auth
 
 db = DAL("sqlite://storage.sqlite")
 
+auth = Auth(db)
+auth.define_tables()
+
 db.define_table('item',
                 Field('title'),
                 Field('valid', 'boolean', default=False),
@@ -35,8 +38,6 @@ db.item.price.requires = IS_FLOAT_IN_RANGE(0, 100000.0, error_message='The price
 db.item.valid.requires = IS_NOT_EMPTY()
 
 
-auth = Auth(db)
-auth.define_tables()
 
 
 

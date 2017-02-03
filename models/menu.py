@@ -5,11 +5,11 @@
 # Customize your APP title, subtitle and menus here
 # ----------------------------------------------------------------------------------------------------------------------
 
-response.logo = A(B('web', SPAN(2), 'py'), XML('&trade;&nbsp;'),
-                  _class="navbar-brand", _href="http://www.web2py.com/",
-                  _id="web2py-logo")
-response.title = request.application.replace('_', ' ').title()
-response.subtitle = ''
+# response.logo = A(B('web', SPAN(2), 'py'), XML('&trade;&nbsp;'),
+#                   _class="navbar-brand", _href="http://www.web2py.com/",
+#                   _id="web2py-logo")
+# response.title = request.application.replace('_', ' ').title()
+# response.subtitle = ''
 
 # ----------------------------------------------------------------------------------------------------------------------
 # read more at http://dev.w3.org/html5/markup/meta.name.html
@@ -31,7 +31,7 @@ response.google_analytics_id = None
 response.menu = [
     (T('Home'), False, URL(request.application, 'default', 'index'), []),
     (T('On Sale'), False, URL(request.application, 'default', 'onsale'), []),
-    (T('Sold Out'), False, URL(request.application, 'default', 'soldout'), [])
+    (T('Add Item'), False, URL(request.application, 'default', 'additem'), []),
 ]
 
 DEVELOPMENT_MENU = False
