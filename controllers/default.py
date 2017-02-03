@@ -19,6 +19,9 @@
 #     comments = db(db.comment.image_id==image.id).select()
 #     return dict(image=image, comments=comments, form=form)
 
+def user():
+    return dict(form=auth())
+
 
 def index():
     """

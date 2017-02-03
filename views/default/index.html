@@ -1,4 +1,4 @@
-
+{{extend 'layout.html'}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +6,16 @@
 </head>
 <body>
 
-
-        <header class="header">
-        <h1 class="header_name">For sale</h1>
-        <h2 class="header_subtittle">What do you want ?</h2>
-
+        {{block header}}
+        <header class="container-fluid background">
+            <div class="jumbotron text-center">
+                {{if response.title:}}
+                <h1>{{=response.title}}
+                  <small>{{=response.subtitle or ''}}</small></h1>
+                {{pass}}
+              </div>
+            </header>
+        {{end}}
 
 
         </header>
