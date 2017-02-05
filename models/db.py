@@ -9,7 +9,7 @@ auth.define_tables()
 
 db.define_table('item',
                 Field('title'),
-                Field('valid', 'boolean', default=False),
+                Field('valid','boolean', default=True),
                 Field('file', 'upload'),
                 Field('seller'),
                 Field('email'),
@@ -17,6 +17,7 @@ db.define_table('item',
                 Field('category'),
                 Field('item_description', 'text'),
                 Field('price'),
+                Field('updated', 'datetime', update=request.now),
                 format='%(title)s')
 
 db.item.title.requires = IS_NOT_EMPTY()
@@ -27,7 +28,7 @@ db.item.phone.requires = IS_NOT_EMPTY()
 
 db.item.email.requires = IS_EMAIL()
 
-db.item.category.requires = IS_IN_SET(['Car', 'Bike', 'Clothes'], zero=T('choose category'))
+db.item.category.requires = IS_IN_SET(['Home','Electronics','Car', 'Bike', 'Clothes'], zero=T('choose category'))
 
 db.item.item_description.requires = IS_NOT_EMPTY()
 
@@ -35,7 +36,6 @@ db.item.price.requires = IS_NOT_EMPTY()
 
 db.item.price.requires = IS_FLOAT_IN_RANGE(0, 100000.0, error_message='The price should be in the range 0..100000')
 
-db.item.valid.requires = IS_NOT_EMPTY()
 
 
 
