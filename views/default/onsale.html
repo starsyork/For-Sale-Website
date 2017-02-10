@@ -1,37 +1,39 @@
 <html lang="en">
- <head></head>
- <body>
-  {{extend 'layout.html'}}
-  <link rel="stylesheet" href="{{=URL('static','css/userIndex.css')}}" />   {{block header}}
-  <header class="container-fluid background">
-   <div class="website">
-     For Sale Website
-   </div>
-  </header> {{end}}
-  <section class="content">
-   <h1>On Sale</h1> {{for item in items:}}
-   <div class="itemList">
-    <img class="itempic" ,="" width="200px" src="{{=URL('download', args=item.file)}}" />
-    <div class="info">
-     <div class="title">
-       {{=item.title}}
-     </div> Category: {{=item.category}} {{=item.updated}}
-     <div class="description">
-       {{=item.item_description}}
-     </div>
-     <ul style="list-style-type:square" class="contact_info">
-      <li>Seller: {{=item.seller}}</li>
-      <li>Email: {{=item.email}}</li>
-      <li>Phone: {{=item.phone}}</li>
-     </ul>
-    </div>
-    <div class="side_info">
-     <div class="price">
-       {{=item.price}} $
-     </div>
 
-    </div>
-   </div> {{pass}}
-  </section>
- </body>
+<head></head>
+
+<body>
+    {{extend 'layout.html'}}
+    <link rel="stylesheet" href="{{=URL('static','css/userIndex.css')}}" /> {{block header}}
+    <header class="container-fluid background">
+        <div class="website">
+            For Sale Website
+        </div>
+    </header> {{end}}
+    <section class="content">
+        <h1>On Sale</h1> {{for item in items:}}
+        <div class="itemList">
+            <img class="itempic" ,="" width="200px" src="{{=URL('download', args=item.file)}}" />
+            <div class="info">
+                <div class="title">
+                    {{=item.title}}
+                </div> Category: {{=item.category}} {{=item.updated}}
+                <div class="description">
+                    {{=item.item_description}}
+                </div>
+                <ul style="list-style-type:square" class="contact_info">
+                    <li>Seller: {{=item.seller}}</li>
+                    <li>Email: {{=item.email}}</li>
+                    <li>Phone: {{=item.phone}}</li>
+                </ul>
+            </div>
+            <div class="side_info">
+                <div class="price">
+                    {{=item.price}} $
+                </div>
+            </div>
+        </div> {{pass}}
+    </section>
+</body>
+
 </html>

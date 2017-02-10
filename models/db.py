@@ -37,7 +37,7 @@ db.item.price.requires = IS_NOT_EMPTY()
 db.item.price.requires = IS_FLOAT_IN_RANGE(0, 100000.0, error_message='The price should be in the range 0..100000')
 
 
-
+db.item.updated.readable = False
 
 
 

@@ -1,12 +1,11 @@
 .content {
-   display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .header {
     background: url(../images/header2.png) bottom;
     background-size: cover;
-
 }
 
 .website {
@@ -19,69 +18,56 @@
     text-shadow: #f3f3f3 1px 1px 0px, #b2b2b2 1px 2px 0
 }
 
-
-
-
-
-.itemList{
+.itemList {
     display: flex;
-  flex-wrap: wrap;
-   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 20px;
-  padding-top: 15px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+    padding-top: 15px;
 }
-
-
 
 .itempic {
     padding-left: 10px;
     width: 20%;
-    height:200px;
+    height: 200px;
 }
 
-.title{
+.title {
     font-size: 1.5em;
 }
 
-
-.info{
+.info {
     height: 150px;
     padding-left: 5%;
     width: 50%;
 }
 
-
-.contact_info{
+.contact_info {
     padding-top: 20px;
 }
 
-
-.side_info{
-    width:30%;
+.side_info {
+    width: 30%;
     padding-left: 50px;
 }
 
-
-.price{
+.price {
     font-size: 50px;
     color: #aa5500;
     font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
 }
 
-
-.status{
+.status {
     padding-top: 20px;
 }
 
 @media screen and (min-width: 850px) {
-   .content {
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    .content {
+        width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
-
-
