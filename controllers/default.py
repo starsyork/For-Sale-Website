@@ -44,7 +44,7 @@ def index():
     items = db().select(db.item.ALL, orderby=db.item.title)
     return dict(items=items)
 
-
+@auth.requires_login()
 def edit():
     item = db.item[request.args(0)]
     form = SQLFORM(db.item, item,labels = {'title' : "Title", 'seller' : "Seller"},
@@ -54,15 +54,16 @@ def edit():
     )
 
     if form.process(keepvalues=True).accepted:
-       response.flash = 'comment accepted'
+       response.flash = 'Update accepted'
     elif form.errors:
-       response.flash = 'please complete your post'
+       response.flash = 'Please complete your item'
     else:
-       response.flash = 'please edit your comment'
+       response.flash = 'Please edit your item'
     items = db(db.item.valid==True).select()
 
     return dict(form=form)
 
+@auth.requires_login()
 def edit_item():
     items = db(db.item.user_id == auth.user_id).select()
     return dict(items=items)

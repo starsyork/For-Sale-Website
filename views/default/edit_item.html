@@ -12,7 +12,7 @@
         </div>
     </header> {{end}}
     <section class="content">
-        <h1>All items</h1> {{for item in items:}}
+        <h1>Pleace select item you want to edit</h1> {{for item in items:}}
         <div class="itemList">
             <img class="itempic" ,="" width="200px" src="{{=URL('download', args=item.file)}}" />
             <div class="info">
@@ -33,7 +33,7 @@
                     {{=item.price}} $
                 </div>
                 <div class="status">
-                    <a href="{{=URL('default', 'edit', args=[item.id])}}">Edit This Item</a>
+                    <a href="{{=URL('default', 'edit', args=[item.id])}}" class = "button">Edit This Item</a>
                 </div>
             </div>
         </div> {{pass}}
