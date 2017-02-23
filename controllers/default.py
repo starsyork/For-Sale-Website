@@ -46,7 +46,7 @@ def index():
 
 
 def edit():
-    item = db.item[request.args(1)]
+    item = db.item[request.args(0)]
     form = SQLFORM(db.item, item,labels = {'title' : "Title", 'seller' : "Seller"},
     showid = False,
     deletable = True,

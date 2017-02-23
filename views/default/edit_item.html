@@ -33,9 +33,7 @@
                     {{=item.price}} $
                 </div>
                 <div class="status">
-                    {{if item.valid == False:}}
-                    <img style="width: 150px;padding-left: 35px; padding-top: 15px" src="{{=URL('static','images/soldout.png')}}" /> {{else:}}
-                    <img style="width: 150px; padding-left: 35px; padding-top: 15px" src="{{=URL('static','images/onsale.png')}}" /> {{pass}}
+                    <a href="{{=URL('default', 'edit', args=[item.id])}}">Edit This Item</a>
                 </div>
             </div>
         </div> {{pass}}
