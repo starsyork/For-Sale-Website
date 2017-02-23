@@ -45,13 +45,31 @@ def index():
     return dict(items=items)
 
 
-def onsale():
+def edit():
+    item = db.item[request.args(1)]
+    form = SQLFORM(db.item, item,labels = {'title' : "Title", 'seller' : "Seller"},
+    showid = False,
+    deletable = True,
+    submit_button = 'update your item'
+    )
+
+    if form.process(keepvalues=True).accepted:
+       response.flash = 'comment accepted'
+    elif form.errors:
+       response.flash = 'please complete your post'
+    else:
+       response.flash = 'please edit your comment'
     items = db(db.item.valid==True).select()
+
+    return dict(form=form)
+
+def edit_item():
+    items = db(db.item.user_id == auth.user_id).select()
     return dict(items=items)
 
 
-def soldout():
-    items = db(db.item.valid==False).select()
+def onsale():
+    items = db(db.item.valid==True).select()
     return dict(items=items)
 
 
@@ -95,5 +113,3 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
-
-

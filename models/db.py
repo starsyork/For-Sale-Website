@@ -18,7 +18,10 @@ db.define_table('item',
                 Field('item_description', 'text'),
                 Field('price'),
                 Field('updated', 'datetime', update=request.now),
+                Field('user_id', default = auth.user_id),
                 format='%(title)s')
+
+db.item.user_id.readable = db.item.user_id.writable = False
 
 db.item.title.requires = IS_NOT_EMPTY()
 

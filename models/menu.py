@@ -32,6 +32,7 @@ response.menu = [
     (T('Home'), False, URL(request.application, 'default', 'index'), []),
     (T('On Sale'), False, URL(request.application, 'default', 'onsale'), []),
     (T('Add Item'), False, URL(request.application, 'default', 'additem'), []),
+    (T('Edit Item'), False, URL(request.application, 'default', 'edit_item'), []),
 ]
 
 DEVELOPMENT_MENU = False
