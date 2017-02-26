@@ -41,6 +41,7 @@ def index():
     """
     # response.flash = T("Hello World")
     # return dict(message=T('Welcome to web2py!'))
+    response.flash = 'This is HW2, Please use tom@gmail.com  or  jm.miller@gmail.com or g_samy@gmail.com or green1988@outlook.com to login,   all password is: "123456" To see this message again, please refresh page'
     items = db().select(db.item.ALL, orderby=db.item.title)
     return dict(items=items)
 
