@@ -1,5 +1,5 @@
 from gluon.tools import Auth
-
+import datetime
 
 
 db = DAL("sqlite://storage.sqlite")
@@ -17,7 +17,7 @@ db.define_table('item',
                 Field('category'),
                 Field('item_description', 'text'),
                 Field('price'),
-                Field('updated', 'datetime', update=request.now),
+                Field('updated', 'datetime', update=datetime.datetime.utcnow()),
                 Field('user_id', default = auth.user_id),
                 format='%(title)s')
 
@@ -40,7 +40,7 @@ db.item.price.requires = IS_NOT_EMPTY()
 db.item.price.requires = IS_FLOAT_IN_RANGE(0, 100000.0, error_message='The price should be in the range 0..100000')
 
 
-db.item.updated.readable = False
+db.item.updated.writable = False
 
 
 

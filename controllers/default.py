@@ -41,14 +41,15 @@ def index():
     """
     # response.flash = T("Hello World")
     # return dict(message=T('Welcome to web2py!'))
-    response.flash = 'This is HW2, Please use tom@gmail.com  or  jm.miller@gmail.com or g_samy@gmail.com or green1988@outlook.com to login,   all password is: "123456" To see this message again, please refresh page'
-    items = db().select(db.item.ALL, orderby=db.item.title)
+    response.flash = 'This is HW2, Please use tom@gmail.com or  jm.miller@gmail.com or g_samy@gmail.com or green1988@outlook.com to login, Add/ Edit button will be shown on top left,   all password is: "123456" To see this message again, please refresh page'
+    items = db().select(db.item.ALL, orderby=db.item.title,limitby=(0, 10))
     return dict(items=items)
 
 @auth.requires_login()
 def edit():
     item = db.item[request.args(0)]
     form = SQLFORM(db.item, item,labels = {'title' : "Title", 'seller' : "Seller"},
+
     showid = False,
     deletable = True,
     submit_button = 'update your item'
@@ -67,6 +68,7 @@ def edit():
 @auth.requires_login()
 def edit_item():
     items = db(db.item.user_id == auth.user_id).select()
+    response.flash = 'Hello' + ' ' + db.auth_user[auth.user_id].first_name + ', Please Choose the item you want to edit'
     return dict(items=items)
 
 
