@@ -1,3 +1,4 @@
+
 <html lang="en">
 
 <head></head>
@@ -10,30 +11,62 @@
             For Sale Website
         </div>
     </header> {{end}}
-    <section class="content">
-        <h1>On Sale</h1> {{for item in items:}}
-        <div class="itemList">
-            <img class="itempic" ,="" width="200px" src="{{=URL('download', args=item.file)}}" />
-            <div class="info">
-                <div class="title">
-                    {{=item.title}}
-                </div> Category: {{=item.category}} {{=item.updated}}
-                <div class="description">
-                    {{=item.item_description}}
+
+    <div class="container">
+    <div class="well well-sm">
+        <strong>Category Title</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>Grid</a>
+        </div>
+    </div>
+
+    <div id="products" class="row list-group">
+        {{for item in items:}}
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+
+                <img class="group list-group-image" src="{{=URL('download', args=item.file)}}" alt="" />
+
+
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        {{=item.title}}</h4>
+                    <div class="group inner list-group-item-text">
+                        {{=item.item_description}}
+                        <ul style="list-style-type:square" class="contact_info">
+                            <li>Seller: {{=item.seller}}</li>
+                            <li>Email: {{=item.email}}</li>
+                            <li>Phone: {{=item.phone}}</li>
+                        </ul>
+
+                      </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                ${{=item.price}}</p>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6">
+
+                            <a class="btn btn-success" style="background-color:#c34c4c">Add to Cart</a>
+                        </div>
+                    </div>
                 </div>
-                <ul style="list-style-type:square" class="contact_info">
-                    <li>Seller: {{=item.seller}}</li>
-                    <li>Email: {{=item.email}}</li>
-                    <li>Phone: {{=item.phone}}</li>
-                </ul>
             </div>
-            <div class="side_info">
-                <div class="price">
-                    {{=item.price}} $
-                </div>
-            </div>
-        </div> {{pass}}
-    </section>
+        </div>
+      {{pass}}
+    </div>
+
+</div>
+<script>
+$(document).ready(function() {
+  $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+  $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+});
+</script>
+
 </body>
 
 </html>
