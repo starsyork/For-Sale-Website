@@ -41,7 +41,7 @@ def index():
     """
     # response.flash = T("Hello World")
     # return dict(message=T('Welcome to web2py!'))
-    response.flash = 'This is HW3, Please use tom@gmail.com, password is: "123456" to login. There are two view models, List and Grid to choose'
+    response.flash = 'Hi everyone, this is HW4. Please use tom@gmail.com, password is: "123456" to login. Then you can vote. Vote buttons only show on HOME page'
     items = db().select(db.item.ALL, orderby=db.item.title,limitby=(0, 10))
     return dict(items=items)
 
@@ -75,6 +75,23 @@ def edit_item():
 def onsale():
     items = db(db.item.valid==True).select()
     return dict(items=items)
+
+@auth.requires_login()
+def vote_up():
+    item = db.item[request.vars.id[0]]
+    new_vote_up = item.vote_up + 1
+    item.update_record(vote_up=new_vote_up)
+    return str(new_vote_up)
+    # print request.vars.id[0]
+    # print 1
+    # return request.vars.id
+
+@auth.requires_login()
+def vote_down():
+    item = db.item[request.vars.id[0]]
+    new_vote_down = item.vote_down - 1
+    item.update_record(vote_down=new_vote_down)
+    return str(new_vote_down)
 
 
 def download():

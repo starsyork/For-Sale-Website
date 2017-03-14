@@ -18,7 +18,7 @@
     text-shadow: #f3f3f3 1px 1px 0px, #b2b2b2 1px 2px 0
 }
 
-/*.itemList {
+.itemList {
     display: flex;
     flex-wrap: wrap;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
@@ -62,7 +62,7 @@
 
 .status {
     padding-top: 20px;
-}*/
+}
 
 @media screen and (min-width: 850px) {
     .content {
@@ -89,7 +89,7 @@
 .glyphicon { margin-right:5px; }
 .thumbnail
 {
-    hright:520px;
+    height:450px;
     margin-bottom: 20px;
     padding: 0px;
     -webkit-border-radius: 0px;
@@ -100,6 +100,7 @@
 
 .item.list-group-item
 {
+    height:300px;
     float: none;
     width: 100%;
     background-color: #ffffff;
@@ -116,6 +117,7 @@
 }
 .item.list-group-item .thumbnail
 {
+  height:270px;
     margin-bottom: 0px;
 }
 .item.list-group-item .caption
@@ -149,11 +151,17 @@
     overflow-x:hidden;
 }
 
+.list-group-item .list-group-item-text
+{
+  height:120px;
+
+}
 
 
 .list-group-image{
   width: 250px;
-  min-height: 300px;
+  min-height: 250px;
+  max-height: 250px;
 
 }
 .item{
@@ -162,4 +170,19 @@
 
 .list-group-item-heading{
   height:35px;
+}
+
+.thumb{
+  width: 20px;
+  height:20px;
+}
+
+.lead{
+  padding-top: 10px;
+  color:rgb(253, 74, 33);
+  font-family: 'Tahoma'
+}
+
+.well{
+  background-color: #ffffff;
 }

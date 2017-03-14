@@ -53,9 +53,16 @@
     <div id="products" class="row list-group">
         {{for item in items:}}
         <div class="item  col-xs-4 col-lg-4">
+          <div  style="position: absolute; top:40px">
+            {{if item.valid == False:}}
+              <a class="btn btn-success">Sold Out</a>{{else:}}
+              <a class="btn btn-success" style="background-color:#c34c4c">On Sale</a>{{pass}}
+          </div>
             <div class="thumbnail">
 
                 <img class="group list-group-image" src="{{=URL('download', args=item.file)}}" alt="" />
+
+
 
 
                 <div class="caption">
@@ -71,16 +78,24 @@
 
                       </div>
                     <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
+                      <div class="col-xs-12 col-md-1"></div>
+                        <div class="col-xs-12 col-md-3">
+                            <p class="lead" >
                                 ${{=item.price}}</p>
                         </div>
-
-                        <div class="col-xs-12 col-md-6">
-                          {{if item.valid == False:}}
-                            <a class="btn btn-success">Sold Out</a>{{else:}}
-                            <a class="btn btn-success" style="background-color:#c34c4c">On Sale</a>{{pass}}
+                        <form><input type="hidden" id="id" name="id" value="" /></form>
+                        <div class="col-xs-12 col-md-3">
+                              <input type="image" src="{{=URL('static','images/thumbs_up.jpg')}}"  class="thumb" onclick="jQuery('#id').val('{{=item.id}}'); ajax('vote_up', ['id'], 'up{{=item.id}}');"/>
+                              <span id="up{{=item.id}}">{{=item.vote_up}}</span>
                         </div>
+
+                        <div class="col-xs-12 col-md-3">
+                          <input type="image" src="{{=URL('static','images/thumbs_down.jpg')}}"  class="thumb" onclick="jQuery('#id').val('{{=item.id}}'); ajax('vote_down', ['id'], 'down{{=item.id}}');"/>
+                          <span id="down{{=item.id}}">{{=item.vote_down}}</span>
+
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -94,6 +109,7 @@ $(document).ready(function() {
   $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
   $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
 });
+
 </script>
 
 </body>

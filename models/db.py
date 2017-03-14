@@ -19,6 +19,8 @@ db.define_table('item',
                 Field('price'),
                 Field('updated', 'datetime', update=datetime.datetime.utcnow()),
                 Field('user_id', default = auth.user_id),
+                Field('vote_up', 'integer', default=0),
+                Field('vote_down', 'integer', default=0),
                 format='%(title)s')
 
 db.item.user_id.readable = db.item.user_id.writable = False
@@ -41,6 +43,9 @@ db.item.price.requires = IS_FLOAT_IN_RANGE(0, 100000.0, error_message='The price
 
 
 db.item.updated.writable = False
+
+db.item.vote_up.writable = db.item.vote_up.readable = False
+db.item.vote_down.writable = db.item.vote_down.readable = False
 
 
 
