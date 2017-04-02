@@ -1,3 +1,4 @@
+
 <html lang="en">
 
 <head></head>
@@ -83,7 +84,6 @@
                                 ${{=item.price}}</p>
                         </div>
                         <form><input type="hidden" id="id" name="id" value="" /></form>
-                        {{if auth.user_id:}}
                         <div class="col-xs-12 col-md-3">
                               <input type="image" src="{{=URL('static','images/thumbs_up.jpg')}}"  class="thumb" onclick="jQuery('#id').val('{{=item.id}}'); ajax('vote_up', ['id'], 'up{{=item.id}}');"/>
                               <span id="up{{=item.id}}">{{=item.vote_up}}</span>
@@ -94,9 +94,8 @@
                           <span id="down{{=item.id}}">{{=item.vote_down}}</span>
 
                         </div>
-                        {{else:}}
-                        <div class="col-xs-12 col-md-6">Please Login to Vote</div>
-                            {{pass}}
+
+
                     </div>
                 </div>
             </div>

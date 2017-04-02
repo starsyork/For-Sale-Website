@@ -89,7 +89,7 @@ def vote_up():
 @auth.requires_login()
 def vote_down():
     item = db.item[request.vars.id[0]]
-    new_vote_down = item.vote_down + 1
+    new_vote_down = item.vote_down - 1
     item.update_record(vote_down=new_vote_down)
     return str(new_vote_down)
 
